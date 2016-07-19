@@ -1,5 +1,8 @@
+html {
+    max-width: 600px;
+}
+
 body {
-	max-width: 600px;
 	margin:    100px auto;
   	font-size: 6em;
   	color: transparent;
