@@ -1,0 +1,77 @@
+body {
+	max-width: 600px;
+	margin:    100px auto;
+  	font-size: 6em;
+  	color: transparent;
+	text-shadow: 0 0 0px #000;
+	-webkit-animation: slowskew 100s infinite alternate;
+       -moz-animation: slowskew 100s infinite alternate;
+         -o-animation: slowskew 100s infinite alternate;
+            animation: slowskew 100s infinite alternate;
+}
+
+body > a {
+	color: blue;
+}
+
+.halfStyle {
+    position:relative;
+    display:inline-block;
+    color: white; 
+    outline: none;
+    overflow:hidden;
+    white-space: pre; 
+}
+
+.halfStyle:before { /* top half */
+    display:block;
+    z-index:2;
+    position:absolute;
+    top:0;
+    height: 50%;
+    content: attr(data-content); 
+    overflow:hidden;
+    pointer-events: none;
+    color: #fff;
+}
+
+.halfStyle:after { /* bottom half */
+    display:block;
+    position:absolute;
+    z-index:1;
+    top:0;
+    height: 100%;
+    content: attr(data-content);
+    overflow:hidden;
+    pointer-events: none; 
+    color: #000;
+    font-style: oblique;
+}
+
+@-webkit-keyframes slowskew {
+    to { 
+        -webkit-transform: skewX(-20deg);
+        text-shadow: 0 0 16px #000; 
+    }
+}
+
+@-moz-keyframes slowskew {
+    to { 
+        -moz-transform: skewX(-20deg); 
+        text-shadow: 0 0 16px #000; 
+    }
+}
+
+@-o-keyframes slowskew {
+    to { 
+        -o-transform: skewX(-20deg); 
+        text-shadow: 0 0 16px #000; 
+    }
+}
+
+@keyframes slowskew {
+    to { 
+        transform: skewX(-20deg); 
+        text-shadow: 0 0 16px #000; 
+    }
+}
