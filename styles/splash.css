@@ -1,7 +1,11 @@
+* {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 body {
 	margin:    100px auto;
     max-width: 600px;
-    overflow-y: hidden;
   	font-size: 6em;
   	color: transparent;
 	text-shadow: 0 0 0px #000;
