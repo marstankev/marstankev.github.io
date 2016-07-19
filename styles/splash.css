@@ -3,19 +3,22 @@
     overflow-y: hidden;
 }
 
-body {
+.info {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 	margin:    100px auto;
     max-width: 600px;
-  	font-size: 6em;
+  	font-size: 3em;
   	color: transparent;
-	text-shadow: 0 0 16px #000;
+	text-shadow: 0 0 6px #000;
 	-webkit-animation: slowskew 100s infinite alternate;
        -moz-animation: slowskew 100s infinite alternate;
          -o-animation: slowskew 100s infinite alternate;
             animation: slowskew 100s infinite alternate;
 }
 
-body > a {
+a {
 	color: blue;
 }
 
@@ -56,27 +59,23 @@ body > a {
 @-webkit-keyframes slowskew {
     to { 
         -webkit-transform: skewX(-20deg);
-/*        text-shadow: 0 0 16px #000; 
-*/    }
+    }
 }
 
 @-moz-keyframes slowskew {
     to { 
         -moz-transform: skewX(-20deg); 
-/*        text-shadow: 0 0 16px #000; 
-*/    }
+    }
 }
 
 @-o-keyframes slowskew {
     to { 
         -o-transform: skewX(-20deg); 
-/*        text-shadow: 0 0 16px #000; 
-*/    }
+    }
 }
 
 @keyframes slowskew {
     to { 
         transform: skewX(-20deg); 
-/*        text-shadow: 0 0 16px #000; 
-*/    }
+    }
 }
