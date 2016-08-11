@@ -4,6 +4,7 @@
 }
 
 .info {
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -16,6 +17,11 @@
        -moz-animation: slowskew 100s infinite alternate;
          -o-animation: slowskew 100s infinite alternate;
             animation: slowskew 100s infinite alternate;
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
 
 a {
@@ -78,4 +84,8 @@ a {
     to { 
         transform: skewX(-20deg); 
     }
+}
+
+#canvas {
+    position: fixed;
 }
