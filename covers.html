@@ -6,20 +6,40 @@
 		<meta name="author" content="Marius Stankevicius">
 		<title>Covers LIVE</title>
 		<link rel="stylesheet" href="styles/mediaelementplayer.min.css" />
-
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<!-- 		<script src="scripts/covers.js"</script>
+ -->		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script src="scripts/mediaelement-and-player.min.js"></script>
 		<script>
                 	$(document).ready(function(){
-                		$('audio,video').mediaelementplayer();
+                		$('audio').mediaelementplayer();
+                		console.log('huh bwuh');
+                		console.log($('audio'));
+
+                		$('audio')[0].onplay = function(){
+                			setTimeout(stop, 4000);
+                			var player = $('audio')[0];
+                			console.log(this);
+                			function stop() {
+                				player.setCurrentTime(0);
+                				player.pause();
+							}
+                		};
+
+                		$('audio')[0].onpause = function(){
+                			$('audio')[0].setSrc("http://relay.broadcastify.com/21248838.mp3?xan=8D1DE87816FD34A0427BB768E4CDD65E");
+                			                			$('audio')[0].play();
+
+                			$('audio')[0].pause();
+                		};
                 	});
         </script>
+
 	</head>
 
 	<body>
 		<h2>Covers LIVE</h2>
 		<div id="play1">
-	    	<audio id="player" src="http://relay.broadcastify.com:80/21248838.mp3?xan=8D1DE87816FD34A0427BB768E4CDD65E" type="audio/mp3" controls="controls" duration="4:20">
+	    	<audio id="player" src="http://relay.broadcastify.com:80/21248838.mp3?xan=8D1DE87816FD34A0427BB768E4CDD65E" type="audio/mp3" controls="controls" duration="0:20">
 	        </audio>
 	    </div>
         <audio id="player" src="http://relay.broadcastify.com:80/21248838.mp3?xan=8D1DE87816FD34A0427BB768E4CDD65E" type="audio/mp3" controls="controls">
@@ -34,6 +54,5 @@
         </audio>
         <audio id="player" src="http://relay.broadcastify.com:80/21248838.mp3" type="audio/mp3" controls="controls">
         </audio>
-        <object type="application/x-shockwave-flash" name="audioplayer_1" style="outline: none" data="http://psalm.us/mp3/player/player.swf" width="80" height="24" id="audioplayer_1"><param name="wmode" value="opaque"><param name="menu" value="false"><param name="flashvars" value="soundFile=http://dir.xiph.org/listen/1395487/listen.m3u&amp;playerID=audioplayer_1"></object>
 	</body>
 </html>
