@@ -473,7 +473,7 @@ Ammo().then((Ammo) => {
   }
 
   function initInput() {
-    window.addEventListener('mousedown', (event) => {
+    function pressListener(event) {
       if (!clickRequest) {
         mouseCoords.set(
           (event.clientX / window.innerWidth) * 2 - 1,
@@ -482,7 +482,9 @@ Ammo().then((Ammo) => {
 
         clickRequest = true;
       }
-    }, false);
+    }
+    window.addEventListener('mousedown', (event) => pressListener(event), false);
+    window.addEventListener('touchstart', (event) => pressListener(event), false);
   }
 
   function processClick() {
