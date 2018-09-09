@@ -473,7 +473,7 @@ Ammo().then((Ammo) => {
   }
 
   function initInput() {
-    function pressListener(event) {
+    window.addEventListener('mousedown', (event) => {
       if (!clickRequest) {
         mouseCoords.set(
           (event.clientX / window.innerWidth) * 2 - 1,
@@ -482,9 +482,19 @@ Ammo().then((Ammo) => {
 
         clickRequest = true;
       }
-    }
-    window.addEventListener('mousedown', (event) => pressListener(event), false);
-    window.addEventListener('touchstart', (event) => pressListener(event), false);
+    }, false);
+
+    window.addEventListener('touchstart', (event) => {
+      event.stopPropagation();
+      if (!clickRequest) {
+        mouseCoords.set(
+          (event.touches[0].clientX / window.innerWidth) * 2 - 1,
+          -(event.touches[0].clientY / window.innerHeight) * 2 + 1,
+        );
+
+        // clickRequest = true;
+      }
+    }, false);
   }
 
   function processClick() {
